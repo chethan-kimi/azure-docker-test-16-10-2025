@@ -24,8 +24,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: ubuntu-latest
+    pool: azure-test
     steps:
 
     - task: Docker@2
@@ -49,8 +48,7 @@ stages:
   jobs:
   - job: Deploy
     displayName: Deploy
-    pool:
-      vmImage: ubuntu-latest
+    pool: azure-test
     steps:
 
     - task: AzureContainerApps@1
