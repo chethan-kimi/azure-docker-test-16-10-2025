@@ -31,7 +31,7 @@ stages:
       displayName: Build an image
       inputs:
         command: build
-        dockerfile: '$(Build.SourcesDirectory)/azure-docker-test-16-10-2025/backend_api_csharp/Dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/backend_api_csharp/Dockerfile'
         repository: $(IMAGE_NAME)
         tags: $(TAG)
 
