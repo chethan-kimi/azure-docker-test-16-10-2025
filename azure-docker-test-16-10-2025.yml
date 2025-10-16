@@ -4,7 +4,7 @@ trigger:
     - main
   paths:
     include:
-    - azure-pipelines.yaml
+    - azure-docker-test-16-10-2025.yml
     exclude:
     - Readme.md
 
