@@ -12,7 +12,7 @@ resources:
 - repo: self
 
 variables:
-  IMAGE_NAME: houssemdocker/album-backend-api
+  IMAGE_NAME: chethankimi/album-backend-api
   CONTAINERAPPS_APP: album-backend-api
   CONTAINERAPPS_ENVIRONMENT: aca-environment
   RESOURCE_GROUP: rg-containerapps-azure-pipelines
@@ -43,21 +43,21 @@ stages:
         command: 'push'
         tags: '$(TAG)'
 
-- stage: Deploy
-  displayName: Deploy to Container Apps
-  jobs:
-  - job: Deploy
-    displayName: Deploy
-    pool: azure-test
-    steps:
+# - stage: Deploy
+#   displayName: Deploy to Container Apps
+#   jobs:
+#   - job: Deploy
+#     displayName: Deploy
+#     pool: azure-test
+#     steps:
 
-    - task: AzureContainerApps@1
-      displayName: Deploy new container version
-      inputs:
-        azureSubscription: 'azure-connection'
-        imageToDeploy: '$(IMAGE_NAME):$(TAG)'
-        containerAppName: '$(CONTAINERAPPS_APP)'
-        resourceGroup: '$(RESOURCE_GROUP)'
-        containerAppEnvironment: '$(CONTAINERAPPS_ENVIRONMENT)'
-        targetPort: '3500'
-        ingress: 'external'
+#     - task: AzureContainerApps@1
+#       displayName: Deploy new container version
+#       inputs:
+#         azureSubscription: 'azure-connection'
+#         imageToDeploy: '$(IMAGE_NAME):$(TAG)'
+#         containerAppName: '$(CONTAINERAPPS_APP)'
+#         resourceGroup: '$(RESOURCE_GROUP)'
+#         containerAppEnvironment: '$(CONTAINERAPPS_ENVIRONMENT)'
+#         targetPort: '3500'
+#         ingress: 'external'
